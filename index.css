@@ -39,16 +39,6 @@ body{
     left:50%;
     animation-duration: 3s;
 }
-/* .joy3{
-    top: 0%;
-    left:60%;
-    animation-duration: 3s;
-}
-.joy4{
-    top: 0%;
-    left:80%;
-    animation-duration: 2.4s;
-} */
 @keyframes selebrate {
     from {
         position:absolute;
@@ -76,13 +66,12 @@ body{
     transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 .container,.wraper{
-    width: 60%;
-    height:90vh;
+    width:55%;
+    height:85vh;
     position:relative;
     border:2px ridge #b64040;
 }
 .wraper {
-    position:relative;
     width: 100%;
     display: grid;
     grid-template-columns:repeat(10,auto);
@@ -265,20 +254,44 @@ body{
 }
 
 @media only screen and (max-width:1000px){
-    .container{
+    .container,.wraper{
          width: 90%;
          border:5px dotted black;
     }
 }
 @media only screen and (max-width:850px){
-    .container{
+    .container,.wraper{
          width: 100%;
          border:5px dotted black;
     }
 }
-@media only screen and (max-width:550px){
-    .container{
-         width: 100%;
-         border:5px dotted rgb(76, 201, 14);
+ @media only screen and (max-width:550px){
+    .container,.wraper{
+         width: 99%;
+         height:70vh;
+         border:5px dotted rgb(234, 77, 4);
     }
-}
+    .container .wraper .box{
+        font-size:1rem;
+    }
+    .container{
+        transform:translate(0%,10%);
+    }
+} 
+@media only screen and (max-width:393px){
+    .container,.wraper{
+         width: 100%;
+         height:70vh;
+         border:5px dotted rgb(185, 2, 179);
+    }
+    .container{
+        transform:translate(0%,10%);
+    }
+    .container .wraper .box{
+        font-size:0.9rem;
+    }
+    .user{
+        width:40px;
+        height:40px;
+    }
+} 

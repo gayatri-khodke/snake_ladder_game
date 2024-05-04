@@ -13,6 +13,7 @@ function playladderAudio() {
     var audio = document.getElementById('myladderAudio');
     audio.play();
 }
+let winingAudio=new Audio('images\success-1-6297.mp3');
 let k;
 function generateRandomnum(btnelement) {
      k = Math.floor(Math.random() * 6) + 1;

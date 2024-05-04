@@ -1,5 +1,8 @@
 let nBox = 1;
-let img;
+let img1;
+let img2;
+let fplayer=1;
+let splayer=2;
 
 function playAudio() {
     var audio = document.getElementById("myAudio");
@@ -13,15 +16,20 @@ function playladderAudio() {
     var audio = document.getElementById('myladderAudio');
     audio.play();
 }
-let winingAudio=new Audio('images\success-1-6297.mp3');
-let k;
-function generateRandomnum(btnelement) {
-     k = Math.floor(Math.random() * 6) + 1;
-    btnelement.innerText = k;
-    let box = document.querySelector('.box' + `${nBox}`);
-    if (img) {
-        img.style.display = "none";
-    }
+function firstplayer(){
+    fplayer=fplayer+k;
+    players(fplayer);
+    goForward(fplayer);
+    goForwardRed(fplayer);
+}
+function secondplayer(){
+    splayer=splayer+k;
+    players(splayer);
+    goForward(splayer);
+    goForwardBlue(splayer);
+}
+
+function players(nBox){
     if(nBox>90){
             let p=nBox+k;
             if(p<100){
@@ -31,12 +39,11 @@ function generateRandomnum(btnelement) {
             else if(p==100){
                 let myelement=document.querySelector('.joy');
                 myelement.style.display='block';
-                // nBox=nBox+k;
-                // location.reload();
-                nBox=100;
-                setTimeout(()=>{
-                    nBox=nBox+k;
-                },1000);
+                nBox=nBox+k;
+                winingAudio.play();
+                // setTimeout(()=>{
+                //     nBox=nBox+k;
+                // },1000);
             }
             else if(nBox >= 100) {
                 let myelement=document.querySelector('.joy');
@@ -47,8 +54,22 @@ function generateRandomnum(btnelement) {
     else{
         nBox=nBox+k;
     }
+}
+
+let winingAudio=new Audio('images/winneraudio.wav');
+let k;
+let mybool=true;
+function generateRandomnum(btnelement) {
+     k = Math.floor(Math.random() * 6) + 1;
+    btnelement.innerText = k;
+   mybool=!mybool;
+   if(mybool){
+    firstplayer();
+   }
+   else{
+    secondplayer();
+   }
     playAudio();
-    return goForward(nBox);
 }
 
 function goForward(num) {
@@ -79,9 +100,10 @@ function goForward(num) {
     } else if (num == 54) {
         playSnakeAudio();
         nBox= 25;
-    } else if (num == 96) {
+    } 
+    else if(num ==73) {
         playSnakeAudio();
-        nBox = 65;
+        nBox= 33;
     } else if (num == 91) {
         playSnakeAudio();
         nBox= 52;
@@ -92,19 +114,37 @@ function goForward(num) {
     } else if (num == 82) {
         playSnakeAudio();
         nBox= 60;
-    }
-    let mybox = document.querySelector('.box' + `${nBox}`);
-    img = document.createElement('img');
-    img.src = 'images/goti.png';
-    img.classList.add("user");
-    mybox.appendChild(img);
+    }   
 }
 
+function goForwardRed(nBox){
+    if(img1){
+        img1.style.display='none';
+    }
+    let mybox = document.querySelector('.box' + `${nBox}`);
+    img1 = document.createElement('img');
+    img1.src = 'images/goti.png';
+    img1.classList.add("user");
+    mybox.appendChild(img1);
+}
+function goForwardBlue(nBox){
+    if(img2){
+        img2.style.display='none';
+    }
+    let mybox = document.querySelector('.box' + `${nBox}`);
+    img2 = document.createElement('img');
+    img2.src = 'images/goti2.png';
+    img2.classList.add("user");
+    mybox.appendChild(img2);
+}
+   
+    
 let myarr = [];
 let nodelist = document.querySelectorAll(".box");
 for (let i = 0; i < nodelist.length - 1; i++) {
     myarr.push(nodelist[i]);
 }
+// add background color to div
 for (let i = 1; myarr.length - 1; i += 3) {
     myarr[i].classList.add("evenbox");
 }

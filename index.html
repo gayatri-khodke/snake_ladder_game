@@ -7,12 +7,16 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+  <div class="avator1"><img src='images/bg4.png'> </div>
+  <div class="avator2"><img src='images/bg5.png'> </div>
+
     <div class="container">
             <div class="joy joy1"><img src="images/smile.png"></div>
             <div class="joy joy2"><img src="images/congratsemoji2.png"></div>      
             <!-- <div class="joy joy3"><img src="images/smile.png"></div> -->
             <!-- <div class="joy joy4"><img src="https://images.emojiterra.com/google/android-12l/512px/1f389.png"></div> -->
-    <div class="wraper">
+    
+            <div class="wraper">
         <img src="images/greensnake1.png" class="snake snack1">
         <img src="images/greensnake1.png" class="snake snack2">
         <img src="images/greensnake1.png" class="snake snack3">
@@ -141,11 +145,20 @@
     </div>
     <section class="playersection">
         <div class="firstplayer">
+          <div class="imgdiv">
+            <span id="purple1"><img src="images/purplegoti.jpeg"> </span>
             <img src="images/user5.png">
+            <h3 id="player1">Play now</h3>
+          </div>
             <div class="btn">
                 <button onclick="generateRandomnum(this)">1</button>
             </div>
-            <img src="images/user3.webp">
+            <div class="imgdiv">
+              <span id="yello1"><img src="images/yellogoti.png"></span>
+              <img src="images/user3.webp">
+              <h3 id="player2">Play now</h3>
+            </div>
+            <button class="startbtn" onclick="startgame(this)">Start</button>
         </div>
         <audio id="myAudio" controls style="display:none">
             <source src="images/dice_roll-96878.mp3" type="audio/mpeg">

@@ -26,7 +26,7 @@ body{
     animation-timing-function: ease-in-out;
     /* animation-delay: 0.3s; */
     animation-direction: normal;
-    animation-iteration-count: 1;
+    animation-iteration-count: infinite;
     /* border:2px solid blue; */
 }
 .joy1{
@@ -55,7 +55,7 @@ body{
 }
 .user{
     width:70px;
-    height:70px;
+    height:60px;
     position:absolute;
     top:50%;
     left:50%;
@@ -65,6 +65,54 @@ body{
     transform: translate(-50%, -50%);
     transform:scale(0.1px);
     transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.avator1{
+    position:absolute;
+    top:10%;
+    left:1%;
+    width:20%;
+    height:40%;
+    /* border:2px solid blue; */
+}
+.avator2{
+    position:absolute;
+    top:10%;
+    right:7%;
+    width: 10%;
+    height:20%;
+    animation-name:logo;
+    animation-duration:10s;
+    animation-timing-function:alternate-reverse;
+    animation-iteration-count: infinite;
+    /* border:2px solid blue; */
+}
+.avator3{
+    position:absolute;
+    top:10%;
+    right:7%;
+    width: 10%;
+    height:20%;
+}
+@keyframes logo{
+    from{
+        right:5%;
+        width: 10%;
+        height:20%;
+    }
+    to{
+        transform:scale(2);
+        /* right:1%;
+        width:20%;
+        height:40%; */
+    }
+}
+.avator1 img,.avator2 img{
+    width:100%;
+    height:100%;
+    background:none;
+}
+.purple1, .yellow1{
+    float:left;
 }
 .container,.wraper{
     width:55%;
@@ -228,12 +276,11 @@ body{
     padding:6px;
     background-color:rgb(61, 175, 147);
     border-radius:7px;
-    border:none;
+    border:0.4rem inset rgb(5, 191, 129);;
     font-size:1.9rem;
 }
 .btn button:hover{
-    box-shadow:10px 10px 10px;
-    /* outline:5px solid rgb(65, 188, 65,0.4); */
+    box-shadow:6px 4px 10px rgb(5, 198, 150,0.7);
 }
 .userimg{
     width:30px;
@@ -244,22 +291,44 @@ body{
     justify-content:center;
     align-items:center;
     width:100%;
-    margin:1px auto;
 }
-.playersection .firstplayer, .secondplayer{
-    width: 50%;
+.playersection .firstplayer{
+    position:relative;
+    width: 60%;
     display:flex;
     justify-content:space-around;
     align-items:center;
+}.playersection{
+    margin:0px;
 }
-.firstplayer img, .secondplayer img{
+.firstplayer img{
     width:40px;
     height:40px;
+}
+.imgdiv{
+    width:100%;
+    text-align:center;
+}
+.startbtn{
+    position:absolute;
+    top:-1rem;
+    right:50%;
+    padding:0rem 1rem;
+    transform:translate(50%,50%);
+    font-size:2rem;
+    text-shadow:3px 3px 3px red;
+    color:#fff;
+    background-color:rgb(186, 85, 85);
+    border:0.5rem outset maroon;
+    border-radius:4px;
 }
 
 @media only screen and (max-width:1000px){
     .container{
          width: 90%;
+    }
+    .avator1,.avator2{
+        display:none;
     }
 }
 @media only screen and (max-width:850px){
@@ -278,6 +347,23 @@ body{
     .container{
         transform:translate(0%,10%);
     }
+    .playersection{
+        width:100%;
+    }
+    .firstplayer{
+        width:100%;
+    }
+    .imgdiv{
+        width:100%;
+        margin:0px;
+    }
+    .imgdiv img{
+        width:30px;
+        height:30px;
+    }
+    .startbtn{
+        padding:0px;
+    }
 } 
 @media only screen and (max-width:393px){
     .container,.wraper{
@@ -286,6 +372,7 @@ body{
     }
     .container{
         transform:translate(0%,10%);
+        margin-top:10%;
     }
     .container .wraper .box{
         font-size:0.9rem;
@@ -293,5 +380,33 @@ body{
     .user{
         width:40px;
         height:40px;
+    }
+    .firstplayer{
+        width:100%;
+    }
+    .imgdiv{
+        width:100%;
+        margin:0px;
+    }
+    .imgdiv img{
+        width:30px;
+        height:30px;
+    }
+    .avator1,.avator2{
+        display:block;
+        width:20%;
+        height:15%;
+    }
+    .avator2{
+        top:0px;
+        right:40%;
+        width:30%;
+        height:10%;
+        animation-name:stopanimation;
+    }
+    .avator1{
+        top:85%;
+        width:30%;
+        height:15%;
     }
 } 

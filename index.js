@@ -1,8 +1,8 @@
 let nBox = 1;
 let img1;
 let img2;
-let fplayer=1;
-let splayer=2;
+let fplayer=0;
+let splayer=0;
 
 function playAudio() {
     var audio = document.getElementById("myAudio");
@@ -16,44 +16,55 @@ function playladderAudio() {
     var audio = document.getElementById('myladderAudio');
     audio.play();
 }
+function startgame(element){
+    element.style.display='none';
+    winingAudio.play();
+}
+let player1=document.getElementById('player1');
+let player2=document.getElementById("player2");
+
 function firstplayer(){
     fplayer=fplayer+k;
     players(fplayer);
-    goForward(fplayer);
-    goForwardRed(fplayer);
+    let myh=goForward(fplayer);
+    fplayer=myh;
+    goForwardRed(myh);
 }
 function secondplayer(){
     splayer=splayer+k;
     players(splayer);
-    goForward(splayer);
-    goForwardBlue(splayer);
+    let mya=goForward(splayer);
+    splayer=mya;
+    goForwardBlue(mya);
 }
 
 function players(nBox){
     if(nBox>90){
-            let p=nBox+k;
-            if(p<100){
+        let p=nBox+k;
+        if(p<100){
+            nBox=nBox+k;
+            console.log(k,nBox);
+        }
+        else if(p==100){
+            let myelement=document.querySelector('.joy');
+            myelement.style.display='block';
+            nBox=nBox+k;
+            winingAudio.play();
+            setTimeout(()=>{
                 nBox=nBox+k;
-                console.log(k,nBox);
-            }
-            else if(p==100){
-                let myelement=document.querySelector('.joy');
-                myelement.style.display='block';
-                nBox=nBox+k;
-                winingAudio.play();
-                // setTimeout(()=>{
-                //     nBox=nBox+k;
-                // },1000);
-            }
-            else if(nBox >= 100) {
                 let myelement=document.querySelector('.joy');
                 myelement.style.display='none';
-                nBox = 1;
-            }
-    }
-    else{
-        nBox=nBox+k;
-    }
+            },2000);
+        }
+        else if(nBox >= 100) {
+            // let myelement=document.querySelector('.joy');
+            // myelement.style.display='none';
+            nBox = 1;
+        }
+}
+else{
+    nBox=nBox+k;
+}
 }
 
 let winingAudio=new Audio('images/winneraudio.wav');
@@ -64,9 +75,13 @@ function generateRandomnum(btnelement) {
     btnelement.innerText = k;
    mybool=!mybool;
    if(mybool){
+    player1.innerText = k;
+    player2.innerText = 'play now';
     firstplayer();
    }
    else{
+    player2.innerText = k;
+    player1.innerText = 'play now';
     secondplayer();
    }
     playAudio();
@@ -114,7 +129,14 @@ function goForward(num) {
     } else if (num == 82) {
         playSnakeAudio();
         nBox= 60;
-    }   
+    } 
+    else if(num>100){
+        nBox=1;
+    }  
+    else{
+        nBox=num;
+    }
+    return nBox;
 }
 
 function goForwardRed(nBox){
@@ -123,7 +145,7 @@ function goForwardRed(nBox){
     }
     let mybox = document.querySelector('.box' + `${nBox}`);
     img1 = document.createElement('img');
-    img1.src = 'images/goti.png';
+    img1.src = 'images/yellogoti.png';
     img1.classList.add("user");
     mybox.appendChild(img1);
 }
@@ -133,7 +155,7 @@ function goForwardBlue(nBox){
     }
     let mybox = document.querySelector('.box' + `${nBox}`);
     img2 = document.createElement('img');
-    img2.src = 'images/goti2.png';
+    img2.src = 'images/purplegoti.jpeg';
     img2.classList.add("user");
     mybox.appendChild(img2);
 }

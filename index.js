@@ -75,13 +75,13 @@ function generateRandomnum(btnelement) {
     btnelement.innerText = k;
    mybool=!mybool;
    if(mybool){
-    player1.innerText = k;
-    player2.innerText = 'play now';
+    player2.innerText = k;
+    player1.innerText = 'play now';
     firstplayer();
    }
    else{
-    player2.innerText = k;
-    player1.innerText = 'play now';
+    player1.innerText = k;
+    player2.innerText = 'play now';
     secondplayer();
    }
     playAudio();

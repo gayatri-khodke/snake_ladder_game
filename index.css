@@ -24,7 +24,6 @@ body{
     animation-name: selebrate;
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
-    /* animation-delay: 0.3s; */
     animation-direction: normal;
     animation-iteration-count: infinite;
     /* border:2px solid blue; */
@@ -60,11 +59,7 @@ body{
     top:50%;
     left:50%;
     z-index:5;
-    /* transition: all 1s; */
-    /* transition:all 2s ease 0.3s; */
     transform: translate(-50%, -50%);
-    transform:scale(0.1px);
-    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 .avator1{
     position:absolute;
